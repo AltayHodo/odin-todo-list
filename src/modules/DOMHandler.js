@@ -5,7 +5,7 @@ const DOMHandler = (function () {
 
 
   const renderTasks = () => {
-    const container = document.querySelector('#container');
+    const container = document.querySelector('#task-container');
     container.innerHTML = '';
 
     tasks.forEach((task, index) => {
