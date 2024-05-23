@@ -1,12 +1,14 @@
-import toDo from "./toDo";
+import { mainToDo, projects, addProject } from "./toDo";
 
 const DOMHandler = (function () {
-  const tasks = toDo.getTasks();
+  let currentProject = mainToDo;
 
 
   const renderTasks = () => {
     const container = document.querySelector('#task-container');
     container.innerHTML = '';
+
+    const tasks = currentProject.getTasks();
 
     tasks.forEach((task, index) => {
       const taskItem = document.createElement('div');
@@ -37,19 +39,20 @@ const DOMHandler = (function () {
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', toggleTask);
     })
-    console.log(checkboxes);
   }
 
   const removeTask = (e) => {
     const index = e.target.dataset.index;
-    toDo.removeTask(index);
+    currentProject.removeTask(index);
     renderTasks();
+    console.log(mainToDo)
+    console.log(projects[0])
+    console.log(projects[1])
   }
 
   const toggleTask = (e) => {
-    const checkbox = e.target;
     const index = e.target.dataset.index;
-    toDo.toggleTask(index);
+    currentProject.toggleTask(index);
     renderTasks();
   }
 

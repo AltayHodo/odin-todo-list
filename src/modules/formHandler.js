@@ -1,4 +1,4 @@
-import toDo from "./toDo";
+import { mainToDo, projects, addProject } from "./toDo";
 import DOMHandler from "./DOMHandler";
 import Task from "./task";
 
@@ -11,10 +11,9 @@ const formHandler = (function () {
     const priority = form.querySelector('input[name="priority"]:checked').value;
     const date = form.querySelector('input[name="date"]').value;
     const task = new Task(title, priority, date);
-    toDo.addTask(task);
+    mainToDo.addTask(task);
     DOMHandler.renderTasks();
     form.reset();
-    console.log(priority);
   };
 
   const init = () => {

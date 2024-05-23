@@ -1,23 +1,63 @@
 import Task from "./task.js";
 
-const toDo = (function () {
-  const tasks = [];
-  const getTasks = () => tasks;
+class ToDo {
+  constructor(name, mainList = null) {
+    this.name = name;
+    this.tasks = []
+    this.mainList = mainList;
+  }
 
-  const addTask = (task) => tasks.push(task);
+  getTasks(){
+    return this.tasks;
+  }
 
-  const removeTask = (index) => tasks.splice(index, 1);
+  addTask(task){
+    this.tasks.push(task);
+    if (this.mainList) {
+      this.mainList.addTask(task);
+    }
+  }
 
-  const toggleTask = (index) => {
-    tasks[index].toggleComplete();
-  };
+  removeTask(index){
+    const task = this.tasks[index];
+    this.tasks.splice(index, 1);
+    if (this.mainList) {
+      const mainIndex = this.mainList.tasks.indexOf(index);
+      if (mainIndex > -1) {
+        this.mainList.tasks.splice(mainIndex, 1);
+      }
+    }
+  }
 
-  return { getTasks, addTask, removeTask, toggleTask };
-})();
+  toggleTask(index){
+    this.tasks[index].toggleComplete();
+  }
+}
 
-const task1 = new Task('dishes', 'high', '2024-05-18 ')
-const task2 = new Task('math homework', 'low', '2024-05-23')
-toDo.addTask(task1);
-toDo.addTask(task2);
+const mainToDo = new ToDo('main');
+const projects = [];
 
-export default toDo;
+const addProject = (projectName) => {
+  const project = new ToDo(projectName, mainToDo);
+  projects.push(project);
+  return project;
+}
+
+const task1 = new Task('dishes', 'high', '2024-05-18');
+const task2 = new Task('laundry', 'low', '2024-05-23');
+
+mainToDo.addTask(task1);
+mainToDo.addTask(task2);
+
+const studyProject = addProject('Study');
+const exerciseProject = addProject('Exercise');
+
+const studyTask = new Task('read chapter 4', 'medium', '2024-05-25');
+studyProject.addTask(studyTask);
+
+const exerciseTask = new Task('go jim', 'high', '2024-05-23');
+exerciseProject.addTask(exerciseTask);
+
+
+
+export { mainToDo, projects, addProject };
