@@ -19,6 +19,7 @@ const DOMHandler = (function () {
         `
 
       taskItem.classList.add('task-item');
+      taskItem.classList.add(`${task.priority}`);
       container.appendChild(taskItem);
     });
     const removeButtons = document.querySelectorAll('.remove-button');

@@ -14,7 +14,7 @@ const formHandler = (function () {
     toDo.addTask(task);
     DOMHandler.renderTasks();
     form.reset();
-    console.log(date);
+    console.log(priority);
   };
 
   const init = () => {

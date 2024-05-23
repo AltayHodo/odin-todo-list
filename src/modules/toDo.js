@@ -11,8 +11,8 @@ const toDo = (function () {
   return { getTasks, addTask, removeTask };
 })();
 
-const task1 = new Task('title1', 'task description', '2024-05-18 ')
-const task2 = new Task('title2', 'description 2', '2024-05-23')
+const task1 = new Task('dishes', 'high', '2024-05-18 ')
+const task2 = new Task('math homework', 'low', '2024-05-23')
 toDo.addTask(task1);
 toDo.addTask(task2);
 

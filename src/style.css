@@ -19,3 +19,15 @@ h1{
   width: 300px;
   padding: 20px;
 }
+
+.high{
+  border-left: 2px solid red;
+}
+
+.medium{
+  border-left: 2px solid orange;
+}
+
+.low{
+  border-left: 2px solid green;
+}
