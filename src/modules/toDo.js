@@ -8,7 +8,11 @@ const toDo = (function () {
 
   const removeTask = (index) => tasks.splice(index, 1);
 
-  return { getTasks, addTask, removeTask };
+  const toggleTask = (index) => {
+    tasks[index].toggleComplete();
+  };
+
+  return { getTasks, addTask, removeTask, toggleTask };
 })();
 
 const task1 = new Task('dishes', 'high', '2024-05-18 ')

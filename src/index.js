@@ -4,5 +4,5 @@ import './style.css'
 
 document.addEventListener("DOMContentLoaded", () => {
   DOMHandler.renderTasks();
-formHandler.init();
+  formHandler.init();
 })

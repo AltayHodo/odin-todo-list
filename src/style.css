@@ -31,3 +31,8 @@ h1{
 .low{
   border-left: 2px solid green;
 }
+
+.completed{
+  color: grey;
+  text-decoration: line-through;
+}
