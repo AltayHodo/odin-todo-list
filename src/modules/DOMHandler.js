@@ -14,6 +14,7 @@ const DOMHandler = (function () {
         `
          <input type="checkbox">
          ${task.title}
+         ${task.dueDate}
          <button class="remove-button" data-index="${index}">x</button>
         `
 

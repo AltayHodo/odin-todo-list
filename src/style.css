@@ -11,3 +11,11 @@ h1{
   display: flex;
   align-items: center;
 }
+
+#task-form{
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 20px;
+}
