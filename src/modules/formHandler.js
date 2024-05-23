@@ -3,21 +3,31 @@ import DOMHandler from "./DOMHandler";
 import Task from "./task";
 
 const formHandler = (function () {
-  const form = document.querySelector('#task-form');
+  const taskForm = document.querySelector('#task-form');
+  const projectForm = document.querySelector('#project-form');
 
-  const handleFormSubmit = (e) => {
+  const handleTaskFormSubmit = (e) => {
     e.preventDefault();
-    const title = form.querySelector('input[name="title"]').value;
-    const priority = form.querySelector('input[name="priority"]:checked').value;
-    const date = form.querySelector('input[name="date"]').value;
+    const title = taskForm.querySelector('input[name="title"]').value;
+    const priority = taskForm.querySelector('input[name="priority"]:checked').value;
+    const date = taskForm.querySelector('input[name="date"]').value;
     const task = new Task(title, priority, date);
     mainToDo.addTask(task);
     DOMHandler.renderTasks();
-    form.reset();
+    taskForm.reset();
+  };
+
+  const handleProjectFormSubmit = (e) => {
+    e.preventDefault();
+    const projectName = projectForm.querySelector('input[name="project-name"]').value;
+    addProject(projectName);
+    DOMHandler.renderTasks();
+    projectForm.reset();
   };
 
   const init = () => {
-    form.addEventListener("submit", handleFormSubmit);
+    taskForm.addEventListener("submit", handleTaskFormSubmit);
+    projectForm.addEventListener("submit", handleProjectFormSubmit);
   };
 
   return { init };

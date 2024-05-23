@@ -35,6 +35,24 @@ h1 {
   align-items: center;
 }
 
+#sidebar{
+  padding: 20px;
+}
+
+#home,
+#projects-title{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#projects-container{
+  padding-left: 10px;
+}
+
+#projects-container > div{
+  margin-bottom: 5px;
+}
+
 #task-form {
   border: 1px solid;
   display: flex;

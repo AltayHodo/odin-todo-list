@@ -22,7 +22,7 @@ class ToDo {
     const task = this.tasks[index];
     this.tasks.splice(index, 1);
     if (this.mainList) {
-      const mainIndex = this.mainList.tasks.indexOf(index);
+      const mainIndex = this.mainList.tasks.indexOf(task);
       if (mainIndex > -1) {
         this.mainList.tasks.splice(mainIndex, 1);
       }

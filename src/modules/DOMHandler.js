@@ -3,7 +3,6 @@ import { mainToDo, projects, addProject } from "./toDo";
 const DOMHandler = (function () {
   let currentProject = mainToDo;
 
-
   const renderTasks = () => {
     const container = document.querySelector('#task-container');
     container.innerHTML = '';
@@ -39,21 +38,32 @@ const DOMHandler = (function () {
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', toggleTask);
     })
+
+    renderSidebar();
   }
 
   const removeTask = (e) => {
     const index = e.target.dataset.index;
     currentProject.removeTask(index);
     renderTasks();
-    console.log(mainToDo)
-    console.log(projects[0])
-    console.log(projects[1])
   }
 
   const toggleTask = (e) => {
     const index = e.target.dataset.index;
     currentProject.toggleTask(index);
     renderTasks();
+  }
+
+  const renderSidebar = () => {
+    const sidebar = document.querySelector('#sidebar');
+    const projContainer = document.querySelector('#projects-container');
+    projContainer.innerHTML = '';
+    projects.forEach(project => {
+      const projectItem = document.createElement('div');
+      projectItem.textContent = project.name;
+      projectItem.classList.add('project-item');
+      projContainer.appendChild(projectItem);
+    });
   }
 
   return { renderTasks };
