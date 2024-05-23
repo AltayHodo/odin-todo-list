@@ -8,11 +8,13 @@ const formHandler = (function () {
 
   const handleTaskFormSubmit = (e) => {
     e.preventDefault();
+
+    const currentProject = DOMHandler.getCurrentProject();
     const title = taskForm.querySelector('input[name="title"]').value;
     const priority = taskForm.querySelector('input[name="priority"]:checked').value;
     const date = taskForm.querySelector('input[name="date"]').value;
     const task = new Task(title, priority, date);
-    mainToDo.addTask(task);
+    currentProject.addTask(task);
     DOMHandler.renderTasks();
     taskForm.reset();
   };

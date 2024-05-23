@@ -3,6 +3,8 @@ import { mainToDo, projects, addProject } from "./toDo";
 const DOMHandler = (function () {
   let currentProject = mainToDo;
 
+  const getCurrentProject = () => currentProject;
+
   const renderTasks = () => {
     const container = document.querySelector('#task-container');
     container.innerHTML = '';
@@ -85,7 +87,7 @@ const DOMHandler = (function () {
   home.addEventListener('click', switchToHome);
 
 
-  return { renderTasks };
+  return { renderTasks, getCurrentProject };
 })();
 
 export default DOMHandler;
