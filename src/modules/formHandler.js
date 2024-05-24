@@ -48,6 +48,43 @@ const formHandler = (function () {
     projectForm.reset();
   };
 
+  document.addEventListener('DOMContentLoaded', () => {
+    const addTaskButton = document.querySelector('#add-task-button');
+    const cancelTaskButton = document.querySelector('#cancel-task-button');
+    taskForm.style.display = 'none';
+    addTaskButton.style.display = 'block';
+
+
+    addTaskButton.addEventListener('click', () => {
+      taskForm.style.display = 'block';
+      addTaskButton.style.display = 'none';
+    });
+
+    cancelTaskButton.addEventListener('click', () => {
+      taskForm.style.display = 'none';
+      addTaskButton.style.display = 'block';
+      taskForm.reset();
+    });
+
+    const addProjectButton = document.querySelector('#add-project-button');
+    const cancelProjectButton = document.querySelector('#cancel-project-button');
+    projectForm.style.display = 'none';
+    addProjectButton.style.display = 'block';
+
+
+    addProjectButton.addEventListener('click', () => {
+      projectForm.style.display = 'block';
+      addProjectButton.style.display = 'none';
+    });
+
+    cancelProjectButton.addEventListener('click', () => {
+      projectForm.style.display = 'none';
+      addProjectButton.style.display = 'block';
+      taskForm.reset();
+    });
+  });
+
+
   const init = () => {
     taskForm.addEventListener("submit", handleTaskFormSubmit);
     projectForm.addEventListener("submit", handleProjectFormSubmit);

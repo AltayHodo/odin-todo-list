@@ -34,7 +34,7 @@ body {
   padding: 20px;
 }
 
-#tasks-title{
+#tasks-title {
   font-size: 35px;
   color: var(--dark-gray);
   margin-bottom: 20px;
@@ -68,9 +68,12 @@ h1 {
 }
 
 #task-form {
-  border: 1px solid;
+  border: 1px solid var(--light-gray);
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0,0,0, .15);
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
   width: 300px;
   padding: 20px;
   font-size: 20px;
@@ -172,22 +175,24 @@ label[for="title"] {
   background-color: var(--red);
 }
 
-#project-form{
+#project-form {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  padding: 0 10px 10px 10px;
 }
 
-#project-name{
-  height: 30px;
+#project-name {
+  height: 35px;
+  width: 100%;
+  margin-bottom: 5px;
   border-radius: 5px;
   border: 1px solid var(--light-gray);
   padding-left: 5px;
 }
 
-#project-form button{
-  padding: 8px 30px;
+#project-form button {
+  padding: 8px 25px;
 }
 
 .high {
