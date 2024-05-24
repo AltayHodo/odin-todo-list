@@ -39,7 +39,7 @@ const DOMHandler = (function () {
     const checkboxes = container.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', toggleTask);
-    })
+    });
 
     renderSidebar();
   }
@@ -70,7 +70,7 @@ const DOMHandler = (function () {
     const projectItems = document.querySelectorAll('.project-item');
     projectItems.forEach(item => {
       item.addEventListener('click', switchProject)
-    })    
+    });
   }
 
   const switchProject = (e) => {
@@ -89,6 +89,8 @@ const DOMHandler = (function () {
   }
   const home = document.querySelector('#home');
   home.addEventListener('click', switchToHome);
+
+  
 
 
   return { renderTasks, getCurrentProject };
