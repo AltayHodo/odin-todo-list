@@ -22,6 +22,10 @@ const formHandler = (function () {
   const handleProjectFormSubmit = (e) => {
     e.preventDefault();
     const projectName = projectForm.querySelector('input[name="project-name"]').value;
+    if(projectName == ''){
+      alert('Project name can\'t be empty');
+      return;
+    }
     addProject(projectName);
     DOMHandler.renderTasks();
     projectForm.reset();

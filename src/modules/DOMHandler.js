@@ -70,17 +70,21 @@ const DOMHandler = (function () {
     const projectItems = document.querySelectorAll('.project-item');
     projectItems.forEach(item => {
       item.addEventListener('click', switchProject)
-    })
+    })    
   }
 
   const switchProject = (e) => {
     const index = e.target.dataset.index;
     currentProject = projects[index];
+    const taskTitle = document.querySelector('#tasks-title');
+    taskTitle.textContent = currentProject.name;
     renderTasks();
   }
 
   const switchToHome = () => {
     currentProject = mainToDo;
+    const taskTitle = document.querySelector('#tasks-title');
+    taskTitle.textContent = "Home";
     renderTasks();
   }
   const home = document.querySelector('#home');
