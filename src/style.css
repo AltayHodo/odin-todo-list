@@ -33,12 +33,53 @@ body {
 
 #main {
   padding: 20px;
+  padding-right: 50px;
 }
 
 #tasks-title {
   font-size: 35px;
   color: var(--dark-gray);
   margin-bottom: 20px;
+}
+
+#task-container{
+  padding-left: 20px;
+}
+
+.task-item{
+  display: flex;
+  gap: 10px;
+  max-width: 600px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  padding: 10px;
+  background-color: #f6f1f1;
+}
+
+.task-name{
+  flex: 1;
+}
+
+.task-date {
+  margin-right: 20px;
+  color: #888;
+}
+
+.task-item input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+.task-item .remove-button {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.task-item .remove-button:hover {
+  color: #e74c3c;
 }
 
 
@@ -242,3 +283,4 @@ label[for="title"] {
   text-align: left;
   border-radius: 5px;
 }
+

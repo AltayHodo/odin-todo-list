@@ -16,8 +16,8 @@ const DOMHandler = (function () {
       taskItem.innerHTML =
         `
          <input type="checkbox" data-index="${index}" ${task.completed ? 'checked' : ''}>
-         ${task.title}
-         ${task.dueDate}
+         <span class="task-name">${task.title}</span>
+         <span class="task-date">${task.dueDate}</span>
          <button class="remove-button" data-index="${index}">x</button>
         `
 
@@ -90,7 +90,7 @@ const DOMHandler = (function () {
   const home = document.querySelector('#home');
   home.addEventListener('click', switchToHome);
 
-  
+
 
 
   return { renderTasks, getCurrentProject };
