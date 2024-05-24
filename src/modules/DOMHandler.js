@@ -1,4 +1,4 @@
-import { mainToDo, projects, addProject } from "./toDo";
+import { mainToDo, projects } from "./toDo";
 
 const DOMHandler = (function () {
   let currentProject = mainToDo;

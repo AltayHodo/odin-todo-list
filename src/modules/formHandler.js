@@ -1,4 +1,4 @@
-import { mainToDo, projects, addProject } from "./toDo";
+import { addProject } from "./toDo";
 import DOMHandler from "./DOMHandler";
 import Task from "./task";
 
