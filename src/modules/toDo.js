@@ -18,6 +18,7 @@ class ToDo {
       this.mainList.addTask(task);
     }
     LocalStorageManager.updateMainToDo();
+    LocalStorageManager.updateProjects();
   }
 
   removeTask(index){
@@ -30,38 +31,25 @@ class ToDo {
       }
     }
     LocalStorageManager.updateMainToDo();
+    LocalStorageManager.updateProjects();
   }
 
   toggleTask(index){
     this.tasks[index].toggleComplete();
     LocalStorageManager.updateMainToDo();
+    LocalStorageManager.updateProjects();
   }
 }
 
-const mainToDo = LocalStorageManager.getMainToDo();
-const projects = [];
+const mainToDo = LocalStorageManager.getMainToDo(mainToDo);
+const projects = LocalStorageManager.getProjects();
 
-const addProject = (projectName) => {
+
+function addProject(projectName){
   const project = new ToDo(projectName, mainToDo);
   projects.push(project);
+  LocalStorageManager.updateProjects();
   return project;
 }
-
-// const task1 = new Task('dishes', 'high', '2024-05-18');
-// const task2 = new Task('laundry', 'low', '2024-05-23');
-
-// mainToDo.addTask(task1);
-// mainToDo.addTask(task2);
-
-// const studyProject = addProject('Study');
-// const exerciseProject = addProject('Exercise');
-
-// const studyTask = new Task('read chapter 4', 'medium', '2024-05-25');
-// studyProject.addTask(studyTask);
-
-// const exerciseTask = new Task('go jim', 'high', '2024-05-23');
-// exerciseProject.addTask(exerciseTask);
-
-
 
 export { ToDo, mainToDo, projects, addProject };
