@@ -1,4 +1,5 @@
 import Task from "./task.js";
+import LocalStorageManager from "./localStorage.js";
 
 class ToDo {
   constructor(name, mainList = null) {
@@ -16,6 +17,7 @@ class ToDo {
     if (this.mainList) {
       this.mainList.addTask(task);
     }
+    LocalStorageManager.updateMainToDo();
   }
 
   removeTask(index){
@@ -27,14 +29,16 @@ class ToDo {
         this.mainList.tasks.splice(mainIndex, 1);
       }
     }
+    LocalStorageManager.updateMainToDo();
   }
 
   toggleTask(index){
     this.tasks[index].toggleComplete();
+    LocalStorageManager.updateMainToDo();
   }
 }
 
-const mainToDo = new ToDo('main');
+const mainToDo = LocalStorageManager.getMainToDo();
 const projects = [];
 
 const addProject = (projectName) => {
@@ -43,21 +47,21 @@ const addProject = (projectName) => {
   return project;
 }
 
-const task1 = new Task('dishes', 'high', '2024-05-18');
-const task2 = new Task('laundry', 'low', '2024-05-23');
+// const task1 = new Task('dishes', 'high', '2024-05-18');
+// const task2 = new Task('laundry', 'low', '2024-05-23');
 
-mainToDo.addTask(task1);
-mainToDo.addTask(task2);
+// mainToDo.addTask(task1);
+// mainToDo.addTask(task2);
 
-const studyProject = addProject('Study');
-const exerciseProject = addProject('Exercise');
+// const studyProject = addProject('Study');
+// const exerciseProject = addProject('Exercise');
 
-const studyTask = new Task('read chapter 4', 'medium', '2024-05-25');
-studyProject.addTask(studyTask);
+// const studyTask = new Task('read chapter 4', 'medium', '2024-05-25');
+// studyProject.addTask(studyTask);
 
-const exerciseTask = new Task('go jim', 'high', '2024-05-23');
-exerciseProject.addTask(exerciseTask);
+// const exerciseTask = new Task('go jim', 'high', '2024-05-23');
+// exerciseProject.addTask(exerciseTask);
 
 
 
-export { mainToDo, projects, addProject };
+export { ToDo, mainToDo, projects, addProject };
