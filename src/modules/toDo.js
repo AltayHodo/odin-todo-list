@@ -4,24 +4,24 @@ import LocalStorageManager from "./localStorage.js";
 class ToDo {
   constructor(name, mainList = null) {
     this.name = name;
-    this.tasks = []
+    this.tasks = [];
     this.mainList = mainList;
   }
 
-  getTasks(){
+  getTasks() {
     return this.tasks;
   }
 
-  addTask(task){
+  addTask(task) {
     this.tasks.push(task);
     if (this.mainList) {
       this.mainList.addTask(task);
     }
-    LocalStorageManager.updateMainToDo();
-    LocalStorageManager.updateProjects();
+    LocalStorageManager.updateMainToDo(mainToDo);
+    LocalStorageManager.updateProjects(projects);
   }
 
-  removeTask(index){
+  removeTask(index) {
     const task = this.tasks[index];
     this.tasks.splice(index, 1);
     if (this.mainList) {
@@ -30,25 +30,25 @@ class ToDo {
         this.mainList.tasks.splice(mainIndex, 1);
       }
     }
-    LocalStorageManager.updateMainToDo();
-    LocalStorageManager.updateProjects();
+    LocalStorageManager.updateMainToDo(mainToDo);
+    LocalStorageManager.updateProjects(projects);
   }
 
-  toggleTask(index){
+  toggleTask(index) {
     this.tasks[index].toggleComplete();
-    LocalStorageManager.updateMainToDo();
-    LocalStorageManager.updateProjects();
+    LocalStorageManager.updateMainToDo(mainToDo);
+    LocalStorageManager.updateProjects(projects);
   }
 }
 
-const mainToDo = LocalStorageManager.getMainToDo(mainToDo);
-const projects = LocalStorageManager.getProjects();
+let projects = []
+const mainToDo = LocalStorageManager.getMainToDo() || new ToDo('Main');
+projects = LocalStorageManager.getProjects(addProject);
 
-
-function addProject(projectName){
+function addProject(projectName) {
   const project = new ToDo(projectName, mainToDo);
   projects.push(project);
-  LocalStorageManager.updateProjects();
+  LocalStorageManager.updateProjects(projects);
   return project;
 }
 

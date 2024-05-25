@@ -7,5 +7,4 @@ import { mainToDo } from "./modules/toDo.js";
 document.addEventListener("DOMContentLoaded", () => {
   DOMHandler.renderTasks();
   formHandler.init();
-  LocalStorageManager.getProjects();
-})
+});
