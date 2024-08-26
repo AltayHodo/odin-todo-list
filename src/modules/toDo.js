@@ -28,6 +28,13 @@ class ToDo {
       if (mainIndex > -1) {
         this.mainList.tasks.splice(mainIndex, 1);
       }
+    } else {
+      projects.forEach((project) => {
+        const projectTaskIndex = project.tasks.indexOf(task);
+        if (projectTaskIndex > -1) {
+          project.tasks.splice(projectTaskIndex, 1);
+        }
+      });
     }
     LocalStorageManager.updateMainToDo(mainToDo);
     LocalStorageManager.updateProjects(projects);
