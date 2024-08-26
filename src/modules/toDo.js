@@ -1,4 +1,3 @@
-import Task from "./task.js";
 import LocalStorageManager from "./localStorage.js";
 
 class ToDo {

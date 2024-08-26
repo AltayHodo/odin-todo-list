@@ -2,7 +2,7 @@ import { mainToDo, projects } from "./toDo";
 
 const DOMHandler = (function () {
   let currentProject = mainToDo;
-  let activeProjectIndex = null; // -1 for Home, null for no selection
+  let activeProjectIndex = -1; // -1 for Home
 
   const getCurrentProject = () => currentProject;
 

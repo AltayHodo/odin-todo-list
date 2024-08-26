@@ -1,4 +1,3 @@
-// localStorage.js
 import Task from "./task";
 import { ToDo, addProject } from "./toDo";
 
