@@ -1,4 +1,4 @@
-import LocalStorageManager from "./localStorage.js";
+import LocalStorageManager from './localStorage.js';
 
 class ToDo {
   constructor(name, mainList = null) {
@@ -40,7 +40,7 @@ class ToDo {
   }
 }
 
-let projects = []
+let projects = [];
 const mainToDo = LocalStorageManager.getMainToDo() || new ToDo('Main');
 projects = LocalStorageManager.getProjects(addProject);
 
@@ -52,9 +52,17 @@ function addProject(projectName) {
 }
 
 function removeProject(index) {
-  projects.splice(index, 1);
-  LocalStorageManager.updateProjects(projects);
+  const project = projects[index];
+  project.tasks.forEach((task) => {
+    const mainIndex = mainToDo.getTasks().indexOf(task);
+    if (mainIndex > -1) {
+      mainToDo.getTasks().splice(mainIndex, 1);
+    }
+  });
 
+  projects.splice(index, 1);
+  LocalStorageManager.updateMainToDo(mainToDo);
+  LocalStorageManager.updateProjects(projects);
 }
 
 export { ToDo, mainToDo, projects, addProject, removeProject };
