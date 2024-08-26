@@ -51,4 +51,10 @@ function addProject(projectName) {
   return project;
 }
 
-export { ToDo, mainToDo, projects, addProject };
+function removeProject(index) {
+  projects.splice(index, 1);
+  LocalStorageManager.updateProjects(projects);
+
+}
+
+export { ToDo, mainToDo, projects, addProject, removeProject };
