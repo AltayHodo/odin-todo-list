@@ -69,7 +69,8 @@ body {
   margin-left: 10px;
 }
 
-.task-item .remove-button {
+.task-item .remove-button,
+.remove-project-button {
   background: none;
   border: none;
   color: #888;
@@ -78,9 +79,17 @@ body {
   transition: color 0.3s ease;
 }
 
-.task-item .remove-button:hover {
+.remove-project-button{
+  font-size: 16px;
+}
+
+
+.task-item .remove-button:hover,
+.remove-project-button:hover {
   color: #e74c3c;
 }
+
+
 
 
 h1 {
@@ -249,6 +258,11 @@ label[for="title"] {
 #add-task-button:hover,
 #add-project-button:hover{
   background-color: var(--medium-gray);
+}
+
+.project-item{
+  display: flex;
+  justify-content: space-between;
 }
 
 .high {
