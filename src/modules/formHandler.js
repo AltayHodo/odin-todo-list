@@ -34,6 +34,8 @@ const formHandler = (function () {
     currentProject.addTask(task);
     DOMHandler.renderTasks();
     taskForm.reset();
+    taskForm.style.display = 'none';
+    document.querySelector('#add-task-button').style.display = 'block';
   };
 
   const handleProjectFormSubmit = (e) => {
@@ -46,6 +48,8 @@ const formHandler = (function () {
     addProject(projectName);
     DOMHandler.renderTasks();
     projectForm.reset();
+    projectForm.style.display = 'none';
+    document.querySelector('#add-project-button').style.display = 'block';
   };
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -80,7 +84,7 @@ const formHandler = (function () {
     cancelProjectButton.addEventListener('click', () => {
       projectForm.style.display = 'none';
       addProjectButton.style.display = 'block';
-      taskForm.reset();
+      projectForm.reset();
     });
   });
 
